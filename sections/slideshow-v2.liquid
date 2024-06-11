@@ -1,0 +1,285 @@
+<div class="z_jog_banner">
+<div class="z_jog_ban_inn">
+<div class="z_jog_ban_rel">
+{% if section.settings.z_ban_img != blank %}
+<div class="z_jog_ban_img">
+<img src="{{ section.settings.z_ban_img | img_url: 'master'}}" class="z_jog_ban_pit"/>
+</div>
+{% endif %}
+
+<div class="z_jos_pos_content z_position_{{ section.id }}">
+<div class="z_jog_content_cont container">
+<div class="z_jos_cont_abs"> 
+<div class="z_jog_content_head">
+<h3 class="z_jog_text_head">{{ section.settings.z_heading }}</h3> 
+</div>
+<div class="z_jog_subhead_content">
+<p class="z_jog_text_subhead"> {{ section.settings.z_subheading }}</p> 
+</div>
+
+<a href="{{ section.settings.z_btn_url }}" class="z_url_button" > {{ section.settings.z_btn_text }}
+<svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.11108 5.74402L0.361084 5.74402L0.361084 7.24402L1.11108 7.24402L1.11108 5.74402ZM27.1487 7.02435C27.4416 6.73146 27.4416 6.25658 27.1487 5.96369L22.3757 1.19072C22.0828 0.897826 21.6079 0.897826 21.315 1.19072C21.0221 1.48361 21.0221 1.95849 21.315 2.25138L25.5577 6.49402L21.315 10.7367C21.0221 11.0296 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02435ZM1.11108 7.24402L26.6183 7.24402L26.6183 5.74402L1.11108 5.74402L1.11108 7.24402Z" fill="white"/>
+</svg>
+</a>
+  
+</div> 
+</div>
+</div>
+
+</div>
+  <div class="z_txt_para"> {{ section.settings.z_sizes }}</div>
+</div>
+</div>
+<style>
+img.z_jog_ban_pit {
+width: 100%;
+display:block; 
+  min-height:500px; 
+  object-fit:cover; 
+} 
+  .z_txt_para {
+    color:{{section.settings.z_subheading_clr}};
+        background: #F5F5F5;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 0;
+    line-height: 1;
+    font-family: "Jost", sans-serif;
+  }
+.z_jog_ban_rel {
+position:relative; 
+}
+.z_position_{{ section.id }}  a.z_url_button {
+background: {{section.settings.z_bg_clr}};
+text-decoration: none;
+color: {{section.settings.z_btn_txt_clr}};
+/* display: inline-block;
+letter-spacing: 0;
+text-transform: capitalize;
+padding: 5px 20px;
+line-height: normal;
+margin: 10px 0 10px 0; */
+  font-family: "Jost", sans-serif;
+  display:inline-flex;
+}
+.z_position_{{ section.id }} .z_jog_text_subhead {
+color:{{section.settings.z_subheading_clr}};
+margin:0;
+padding:0; 
+font-size:16px; 
+line-height: normal;
+letter-spacing: 0;
+  font-family: "Jost", sans-serif;
+
+}
+.z_position_{{ section.id }} {
+width:100%;
+height:100%; 
+position:absolute;
+left:0;
+top:0; 
+}
+.z_jog_content_cont {
+  
+height: 100%;
+position: relative; 
+}
+.z_position_{{ section.id }} .z_jog_text_head {
+margin:0;
+padding:0; 
+color:{{section.settings.z_heading_clr}}; 
+font-size: 63px; 
+line-height: normal;
+letter-spacing: 0; 
+  font-family: "Jost", sans-serif;
+  font-weight:500;
+}
+  .z_position_{{ section.id }} .z_jos_cont_abs {
+      position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 525px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
+    padding-left: 50px;
+    padding: 50px;
+  }
+{% if section.settings.z_position == "top-left" %}
+.z_position_{{ section.id }} .z_jos_cont_abs {
+position:absolute; 
+top:0;
+left:0;
+}
+
+{% elsif section.settings.z_position =="bottom-left" %}
+.z_position_{{ section.id }} .z_jos_cont_abs {
+position:absolute; 
+bottom:0px;
+left:0px;
+}
+
+{% elsif section.settings.z_position == "top-right" %}
+.z_position_{{ section.id }} .z_jos_cont_abs {
+position:absolute; 
+top:20px;
+right:0;
+}
+{% else %}
+.z_position_{{ section.id }} .z_jos_cont_abs{
+position:absolute; 
+bottom:66px;
+right:0;
+}
+{% endif %}
+
+  @media (max-width:1200px) {
+    .z_jos_cont_abs {
+      padding:0 10px; 
+    }
+    img.z_jog_ban_pit {
+width: 100%;
+display:block; 
+  min-height:500px; 
+  object-fit:cover; 
+} 
+  }
+   @media (max-width:1024px) {
+    .z_jos_cont_abs {
+      padding:0 50px; 
+    }
+   }
+      @media (max-width:768px) {
+    .z_jos_cont_abs {
+      padding:0 30px; 
+    }
+        img.z_jog_ban_pit {
+    width: 100%;
+    display: block;
+    min-height: 500px;
+    object-fit: cover;
+} 
+        .z_position_{{ section.id }} .z_jog_text_subhead {
+          font-size:13px;
+        }
+        .z_position_{{ section.id }} .z_jog_text_head {
+          font-size:30px; 
+        }
+      }
+       @media (max-width:490px) {
+    .z_jos_cont_abs {
+      padding:0 20px; 
+    }
+           img.z_jog_ban_pit {
+    width: 100%;
+    display: block;
+    min-height: 300px;
+    object-fit: cover;
+} 
+      }
+  </style>
+
+
+{% schema %}
+{
+"name": "Banner",
+"settings": [
+{
+"type" : "image_picker",
+"label" : "Banner Image",
+"id" : "z_ban_img"
+},
+{
+"type" : "text" ,
+"label" : "Enter Heading",
+"id" : "z_heading",
+"default" : "The Gift Guide"
+},
+{
+"type" : "text" ,
+"label" : "Enter subheading",
+"id" : "z_subheading",
+"default" : "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season. "
+},
+{
+"type" : "color",
+"label" : "Heading color",
+"id" : "z_heading_clr",
+"default" : "#fff"
+}
+,
+{
+"type" : "color",
+"label" : "Subheading color",
+"id" : "z_subheading_clr",
+"default" : "#fff"
+},
+{
+"type": "select",
+"id": "z_position",
+"label": "Position",
+"options": [
+{
+"value": "top-left",
+"label": "Top-Left"
+},
+{
+"value": "bottom-left",
+"label": "Bottom-Left"
+},
+{
+"value": "top-right",
+"label": "Top-Right"
+},
+{
+"value": "bottom-right",
+"label": "Bottom-Right"
+}
+],
+"default" : "bottom-left"
+},
+{
+"type" : "url" ,
+"label" : "Enter button url",
+"id" : "z_btn_url"
+},
+{
+"type" : "text" ,
+"label" : "Enter button text",
+"id" : "z_btn_text",
+"default" : "Shop Now"
+},
+{
+"type" : "color",
+"label" : "Button background color",
+"id" : "z_bg_clr",
+"default" : "#fff"
+},
+{
+"type" : "color",
+"label" : "Button text color",
+"id" : "z_btn_txt_clr",
+"default" : "#000000"
+},
+  {
+    "type": "text",
+    "default" : "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+    "id": "z_sizes",
+    "label": "Text"
+  }
+],
+"presets" : [
+{
+"name" : "Banner",
+"category": "select"
+}]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %} 

@@ -1,0 +1,124 @@
+<div class="cstm-header">
+  <div class="cstm-header-wrapper">
+    <div class="container"> 
+    <div class="cstm-grid">
+      <div class="cstm-logo">
+        <a href="{{ shop.url }}" >
+       {% if section.settings.logo != blank %}
+         <img src="{{ section.settings.logo | img_url : "master" }}" class="logo-img" />
+         {% else %}
+         {{ shop.name }}
+         {% endif %}
+          </a>
+      </div>
+      <div class="cstm-gift-txt">
+        {% if section.settings.gift-text != blank %} <p class="cstm-gift-text-wr"> {{ section.settings.gift-text }}</p> {% endif %}
+      </div>
+      <div class="cstm-gift-btn">
+       {% if section.settings.gift-button != blank %} <a href="{{ section.settings.btn-url }}" class="z_url_button"> {{ section.settings.gift-button }}
+         <svg width="26" height="12" viewBox="0 0 26 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.22205 4.80469L0.472046 4.80469L0.472046 6.30469L1.22205 6.30469L1.22205 4.80469ZM25.7524 6.08502C26.0453 5.79213 26.0453 5.31725 25.7524 5.02436L20.9794 0.251388C20.6865 -0.0415053 20.2116 -0.0415053 19.9187 0.251388C19.6259 0.544281 19.6259 1.01916 19.9187 1.31205L24.1614 5.55469L19.9187 9.79733C19.6259 10.0902 19.6259 10.5651 19.9187 10.858C20.2116 11.1509 20.6865 11.1509 20.9794 10.858L25.7524 6.08502ZM1.22205 6.30469L25.222 6.30469L25.222 4.80469L1.22205 4.80469L1.22205 6.30469Z" fill="black"/>
+</svg>
+</a> {% endif %}
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-img {
+    width:{{section.settings.logo_width}}px;
+    display:block;
+  }
+  .cstm-grid {
+    display:grid;
+        grid-template-columns: auto 1fr auto;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+  }
+  .cstm-gift-text-wr {
+   text-align: center;
+    font-family: "Jost", sans-serif;
+    margin: 0;
+    font-weight: 400;
+    line-height: .8;
+    font-size: 16px;
+    color: #000;
+  }
+  * {
+    letter-spacing:0;
+  }
+  .cstm-header-wrapper {
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color: #F5F5F5;
+  }
+  .container {
+    max-width:1600px;
+    margin:0 auto;
+    padding:0 50px;
+  }
+  .z_url_button {
+        display: flex;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: "Jost", sans-serif;
+    color: #000;
+    min-width: 207px;
+    background: #FFF544;
+    min-height: 44px;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 12px 10px 12px 20px;
+  }
+</style>
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+     {
+  "type": "range",
+  "id": "logo_width",
+  "min": 0,
+  "max": 200,
+  "step": 2,
+  "unit": "px",
+  "label": "Logo",
+  "default": 152
+},
+      {
+        "type": "text",
+        "id": "gift-text",
+        "default" : "Find the ideal gift for your loved ones.",
+        "label": "Gift text"
+      },
+      {
+        "type": "text",
+        "id": "gift-button",
+        "label": "Gift button",
+        "default" : "choose gift"
+      },
+      {
+        "type": "url",
+        "id": "btn-url",
+        "label": "Button url"
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "Header"
+      }
+    ]
+  }
+{% endschema %}
